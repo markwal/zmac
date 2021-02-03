@@ -1,9 +1,13 @@
 # On Mac OSX gcc is required as clang complains bitterly about the old style
 # C delarations used.
 
-CFLAGS=-O2
-
+CC=gcc
+CXX=g++
 DEP=zmac.o mio.o doc.o zi80dis.o
+
+# Some systems like CentOS may require this
+# YACC=bison -y
+# Is there a YACCFLAGS?
 
 zmac: doc.inl $(DEP)
 	$(CXX) -Wall $(CXXFLAGS) -o zmac $(DEP)
